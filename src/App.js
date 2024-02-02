@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import Button from './Component/Button';
+import { useState } from 'react';
+
+
+//useState HOOk
 function App() {
+  //const count = 0
+  const [count,setCount] = useState(0);
+
+  const increment = ()=>{
+    //count+=1;
+    setCount(count+1);
+  }
+
+  const decrement = ()=>{
+    //count-=1;
+    setCount(count-1);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='main' >
+    <span className='title'>Counter Application</span>
+    <p className='countTag'>The Count is :{count}</p>
+    <Button name='button1' click={increment} type='+'/>
+    <Button name='button2' click={decrement} type='-' />
     </div>
-  );
+  )
 }
+
 
 export default App;
